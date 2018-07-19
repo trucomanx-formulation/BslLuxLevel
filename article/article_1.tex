@@ -1,0 +1,467 @@
+\documentclass[review]{elsarticle}
+\usepackage{comment}
+\usepackage{url}
+%
+\usepackage[breaklinks]{hyperref}
+\usepackage{breakurl}
+
+
+\usepackage[ruled]{algorithm2e}
+
+%\usepackage{lineno}
+%\modulolinenumbers[5]
+
+\journal{Optics Communications}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+%\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+%\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+\bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{subcaption}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[svgnames]{xcolor} % Enabling colors by their 'svgnames'
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+\begin{document} 
+
+\begin{frontmatter}
+
+\title{Towards Illumination Level Independence in the Dynamic Laser Speckle Analysis}
+%\tnotetext[mytitlenote]{Fully documented templates are available in the 
+%elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
+
+
+
+% Group authors per affiliation:
+\author{-------- ------- ------}
+\author{-------- ------- ------}
+
+
+
+% \author{Fernando Pujaico Rivera\fnref{myfootnote2}}
+% \author{Roberto Alves Braga Jr.\fnref{myfootnote1}}
+% \address{University Federal of Lavras, Lavras, Brazil}
+% \fntext[myfootnote2]{201518201@posgrad.ufla.br}
+% \fntext[myfootnote1]{robertobraga@deg.ufla.br }
+
+
+\begin{abstract}
+In this article we show an analysis of how the frequency band,
+of the speckle signal, influence in the
+light independence of the speckle index value in a dynamic laser speckle analysis. 
+Specifically, 
+will be studied as It is influenced the temporal speckle deviation 
+index by the use of 3 different frequency bands of the speckle signal.
+Finally, It is shown as signals with high frequency values
+return values with more illumination level independence.
+\end{abstract}
+
+\begin{keyword}
+Biospeckle laser \sep 
+Biospeckle index \sep 
+Biospeckle signal\sep 
+Biological activity \sep
+Dynamic speckle \sep  
+Backscattering.
+\end{keyword}
+
+\end{frontmatter}
+
+\linenumbers
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+Dynamic laser speckle is a phenomenon that is used to monitor changes in illuminated samples, and it can be measured by multiple indexes \cite{BSLTLBOOK}. The indexes are associated to the level of changes and could be expressed by numerical and or graphical outcomes that can be affected by filtering action during the image processing \cite{RIVERA2017144}. As an example, we have  the $AVD$ \cite{avd} and 
+$IM$ \cite{ARIZAGA1999163} indexes, that filter
+the information present in the history of the speckle images like a first order high pass filter with a cut-off in the middle
+of the normalized frequency band. 
+For this reason, it is important to analyze how
+the chosen frequency band alters the result of selected index.
+By other side, there is still a limitation to make  speckle analysis in the presence of in-homogeneity of illumination, because
+the most of biospeckle indexes are influenced in their values
+by the use of a illumination level \cite{REIS2016}.
+The illumination level can vary regarding the profile of the sample, such as an apple \cite{KAZ:12a} or a very irregular surface present in a kefir \cite{kefir}. 
+It can also vary in accordance with the moisture present in the seed \cite{CARDOSO2011} due to the penetration of the light in the sample, or even when the color of the sample vary such as in the interface of cancer and normal tissues \cite{BCB+:12a}. And that is the reason to a continuous search for an adequate index, despite the fact there are many of them present in literature \cite{BSLTLBOOK}, but still without a solution to the independence of light intensity. 
+The movement toward the portable equipment \cite{Bra:17}, reinforce the need to search the methods and its relation with the illumination. 
+Thus, the present work aimed to establish a relation between the frequency band used
+and the speckle index; particularly in the dependence of
+the temporal speckle deviation matrix \cite{Nothdurft:05} with the illumination level.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{System description}
+\label{sec:description}
+
+\subsection{Data packages of drying ink}
+\label{sec:descriptionink}
+Fig. \ref{fig:system} shows the system setup of the ink sample test during drying where
+a red laser was pointed to a layer of drying ink monitored by a digital camera;
+the images are collected receiving two different illumination levels, because of the neutral 
+density lens covering partially the laser beam \cite{REIS2016}.
+The images were placed in data packages
+are sampled with a time rate acquisition of $F_s=$ 12.5 hertz, being 
+collected $N=400$ images by package. In total were collected $11$ packages 
+(with the two different illumination levels each one) at the minutes 
+$0$, $10$, $20$, $30$, $40$, $50$, $60$, $75$,$105$,$120$ and $150$ of drying process. 
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.65\columnwidth]{system.eps}
+\caption{Experimental configuration of dynamic laser speckle formation monitored by digital system with the levels of illumination over a layer of drying ink.}
+\label{fig:system}
+\end{figure}
+In each image of the packages was selected two regions, of $250\times200$ pixels, 
+corresponding to the regions with two different illumination levels, 
+as shown with black lines in the Fig. \ref{fig:regions}. In the right side of the \ref{fig:regions}  we have the
+portion of image that was altered by the neutral density lens. The figure represents
+with a color bar the result of  calculus the temporal speckle mean matrix ($\mu$) according the Eq. (\ref{eq:cont1})
+showed in the Sec. \ref{subsec:deviation}. Being this value associated in the literature with
+the illumination quantity in the surface of sample \cite{Nothdurft:05}; corresponding thus high values of $\mu$
+to places with more illumination. 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.85\columnwidth]{meanall_points_all.eps}
+\caption{Selected regions and light intensity distribution in the ink drying test.}
+\label{fig:regions}
+\end{figure}
+\textcolor{red}{Nesta figura 2 poderíamos colocar também as imagens cruas dos padrões de speckle}\\
+
+\subsection{Data packages of a steady state paper}
+\label{sec:descriptionpaper}
+The test over a steady state paper has a similar configuration that seen in
+the Fig. \ref{fig:system} with the the absence of 
+the neutral density lens. The phenomenon observed was the noise associated to the experimental configuration linked to the camera, to the resolution of the images and also the mechanical noise, and it was collected one data package
+sampled with a frequency of $F_s=$ 10 hertz, being 
+collected in total $N=129$ images of 640$\times$480 pixels.
+The Fig. \ref{fig:meanpaper} represents
+with a color bar the result of  calculus the temporal speckle mean matrix ($\mu$) according the Eq. (\ref{eq:cont1})
+showed in the Sec. \ref{subsec:deviation}; thus, it is easy to see how the
+illumination level of laser over the paper has an elliptical form being highest 
+close to the top of the image.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.85\columnwidth]{meanall.eps}
+\caption{Light intensity distribution in the paper piece test with highest illumination presented by red pixels and lowest by blue pixels.}
+\label{fig:meanpaper}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Numerical analysis}
+\label{sec:analysis}
+
+\subsection{Data package filtering in three frequency band}
+\label{subsec:firfilters}
+Each data package or sub package ($P_T$) went through of a filter bank with 4 outputs  having each
+one a different type of processing, the first output is trivial because it
+lets to pass the information freely, this package is called of $P_T$, whilst the other 3 outcomes
+return  signals filtered by a frequency band; thus, 
+we have the band between $[0,\frac{1}{3}]\frac{F_s}{2}$ (low frequencies),
+the band between $[\frac{1}{3},\frac{2}{3}]\frac{F_s}{2}$ (intermediate frequencies) and
+the band between $[\frac{2}{3},1]\frac{F_s}{2}$ (high frequencies); obtaining at end, the packages 
+$P_X$, $P_Y$ and $P_Z$, respectively; as can be seen in the  Fig. \ref{fig:firfilters}.
+The filtered packages of images were carried out using cascades
+of two low-pass Finite Impulse Response ($FIR$) filters of order $32$, so that
+the sum of signals $P_X+P_Y+P_Z=P_T$.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.55\columnwidth]{firfilters.eps}
+\caption{Filtering of data packages.}
+\label{fig:firfilters}
+\end{figure}
+
+
+
+\subsection{Temporal speckle deviation matrix}
+\label{subsec:deviation}
+The temporal speckle deviation matrix ($\sigma$) \cite{Nothdurft:05} 
+used to compare the results was obtained from the $N$ images of a data package.
+We designate to each image, in the package $P$, as $\mathbf{I}_{k}$, $1\leq k \leq N$, being $k$ an integer;
+thus, to get the value $\sigma$, 
+ it is necessary to get 
+the matrix $\sigma$ as seen in the Equation \ref{eq:cont2}, 
+\begin{equation}\label{eq:cont2}
+\sigma  = \sqrt{ \frac{1}{N} \sum_{k=1}^{N} (\mathbf{I}_{k}-\mu)^2  },
+\end{equation}
+being that, the value $\mu$ can be calculated as, 
+\begin{equation}\label{eq:cont1}
+\mu =  \frac{1}{N} \sum_{k=1}^{N} \mathbf{I}_{k},
+\end{equation}
+
+
+Additionally, the temporal speckle deviation index can be defined as $\bar{\sigma}=<\sigma>$, the mean value
+of all elements in $\sigma$, being $<.>$ the mean spatial operator.
+%And $\sigma_p$ as any value of an element in  $\sigma$.
+
+\subsection{Datapack processing in the test of a drying ink}
+\label{subsec:numprocink}
+
+We have in the drying ink regions  with
+two levels of illumination; thus, we  separated each package in two sub package
+(left and right), representing each one of the regions shown in the Fig. \ref{fig:regions}.
+These sub-packages were filtered,
+obtaining the packages $P_T$, $P_X$, $P_Y$ and $P_Z$, that was used to obtain
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.65\columnwidth]{filtering.eps}
+\caption{Filtering of data packages.}
+\label{fig:filtering}
+\end{figure}
+
+the temporal speckle deviation matrix and the 
+temporal speckle deviation indexes $\bar{\sigma}_T$, $\bar{\sigma}_X$, $\bar{\sigma}_Y$ and
+$\bar{\sigma}_Z$.
+
+\subsection{Statistical analysis of relation between the matrices $\sigma$ and $\mu$}
+\label{subsec:statistical}
+We defined $\sigma_i$ and $\mu_i$
+as the values in the $i-th$ position in the $\sigma$  
+and $\mu$ matrices, respectively; we also defined $\mu_p$
+as any element value in  $\mu$.
+And we define the set $S_{\mu_p}=\{\sigma_i: \mu_i\equiv \mu_p; \forall i\}$
+as the set of all $\sigma_i$  values given that $\mu_i\equiv\mu_p$.
+Then, we obtained the vectors $L_p$, $\sigma_p$ and
+$e_p$ using all the $\mu_p$ values, according to:
+\begin{itemize}
+ \item $L_p(\mu_p)=card\left(S_{\mu_p}\right)$,  being $L_p(\mu_p)$ the number of elements
+ in the set $S_{\mu_p}$ and $card(.)$ the cardinality function operator.
+ \item $\sigma_p(\mu_p)=mean\left(S_{\mu_p}\right)$, being $\sigma_p(\mu_p)$
+ the mean value of elements in the set $S_{\mu_p}$ with $mean(.)$ representing the mean value function operator.
+ \item $e_p(\mu_p)=std\left(S_{\mu_p}\right)$, being $\e_p(\mu_p)$
+ the standard  deviation value of elements in the set $S_{\mu_p}$ with $std(.)$ representing the standard deviation function operator.
+\end{itemize}
+In practice only will be taken the vectors, values of $\mu_p$
+with a $L_p(\mu_p)>200$ samples, to establish a limit to consider a set of representative samples.
+
+
+\subsection{Datapack processing in the test of a steady state paper}
+\label{subsec:numprocink}
+
+In this test we have one data package that was filtered (\ref{fig:filtering2}) obtaining the packages $P_T$, $P_X$, $P_Y$ and $P_Z$, where the outcomes are the temporal speckle mean matrix and the 
+temporal speckle deviation matrix, as can be seen in the Fig. \ref{fig:filtering2}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.65\columnwidth]{filtering2.eps}
+\caption{Filtering of data package in the steady paper obtaining the mean and the deviation outcomes.}
+\label{fig:filtering2}
+\end{figure}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Numerical results} 
+\label{sec:numerical}
+
+\subsection{Numerical results o the drying ink test} 
+\label{subsec:numericalink}
+In the Fig. \ref{fig:numerical}, we can see the result of processing 
+ the drying ink test under the dynamic laser speckle index (DLSI) in two areas with different level of illumination. The Fig. \ref{fig:allink}
+represents the $\bar{\sigma}_T$ value in two light intensity levels, and it is done using the package $P_T$
+trough the time, with the complete frequency bands.
+The Fig. \ref{fig:stdxink}
+represents the $\bar{\sigma}_X$ value in two light intensity levels, an it is done using the package $P_X$
+trough the time, with the frequency band between $0$ and $\frac{1}{3}\frac{F_s}{2}$Hz.
+The Fig. \ref{fig:stdyink}
+represents the $\bar{\sigma}_Y$ value in two light intensity levels, and it is done using the package $P_Y$
+trough the time, with the frequency band between $\frac{1}{3}\frac{F_s}{2}$ and $\frac{2}{3}\frac{F_s}{2}$ Hz.
+And the Fig. \ref{fig:stdzink}
+represent the $\bar{\sigma}_Z$ value in two light intensity levels, and it is done using the package $P_Z$
+trough the time, with the frequency band between $\frac{2}{3}\frac{F_s}{2}$ and $\frac{F_s}{2}$ Hz.
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{std-all.eps}
+	\caption{$\bar{\sigma}_T$ value through  the time.}
+        \label{fig:allink}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{std-bandx.eps}
+	\caption{$\bar{\sigma}_X$ value through  the time.}
+        \label{fig:stdxink}
+    \end{subfigure}
+    ~\\ 
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{std-bandy.eps}
+	\caption{$\bar{\sigma}_Y$ value through  the time.}
+        \label{fig:stdyink}
+    \end{subfigure}
+  ~
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{std-bandz.eps}
+	\caption{$\bar{\sigma}_Z$ value through  the time.}
+        \label{fig:stdzink}
+    \end{subfigure}
+    
+\caption{Numerical results in the ink drying test.}\label{fig:numerical}
+\end{figure}
+As can be seen, when we analyzed the index over the complete frequency band (Fig. \ref{fig:allink}),
+we had different results to both illuminations levels, being high in the left side,that is the side with most illumination. This 
+indicates a positive influence of illumination level in the index value.
+By other side, if we observe the Figures \ref{fig:stdxink}, \ref{fig:stdyink} and \ref{fig:stdzink}
+we can see how the index values from different
+illuminations  was similar to the frequency level,
+being greatest similarity in the frequency band between $\frac{2}{3}\frac{F_s}{2}$ and $\frac{F_s}{2}$ Hz.
+Thus the similarity is limited by the sampling rate used.
+
+Finally, it is important to highlight that in the drying ink test, the information from the dynamic laser speckle is linked to high frequencies in the beginning of the drying process and  speckle signals with low frequencies at end, being gradual the transition
+until reach the lowest level of signal with only the noise of test.
+In Figure \ref{fig:numerical} ($c-d$) one can see that after 50 minutes there is a transition of state with the stabilization of the DLSI. Thus, after this point, one has only the inner noise of the system influencing the DLSI.
+
+This indicates that the comparisons of index illumination independence
+only should be made between the first minutes because out this range we will be using high contribution of 
+the noise as outcome.
+
+\subsection{Numerical results of a steady paper under laser light} 
+\label{subsec:numericalpaper}
+In the Fig. \ref{fig:papelstd} we can see the result of data processing from the steady
+ paper under dynamic laser speckle phenomenon considering an homogeneous illumination and using the standard deviation $\sigma$ as a dynamic laser speckle index (DLSI). Fig. \ref{fig:papelall}
+represents the $\sigma_T$ matrix with the complete frequency band, while Fig. \ref{fig:papelstd_stdx}
+represents the $\sigma_X$ matrix with the frequency band between $0$ and $\frac{1}{3}\frac{F_s}{2}$Hz.
+Fig. \ref{fig:papelstd_stdy} represents the $\sigma_Y$ matrix with the frequency band between $\frac{1}{3}\frac{F_s}{2}$ and $\frac{2}{3}\frac{F_s}{2}$ Hz, and Fig. \ref{fig:papelstd_stdz} 
+represents the $\sigma_Z$ matrix with the frequency band between $\frac{2}{3}\frac{F_s}{2}$ and $\frac{F_s}{2}$ Hz.
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.485\textwidth}
+        \includegraphics[width=\textwidth]{stdall.eps}
+	\caption{$\sigma_T$ matrix over the complete frequency band.}
+        \label{fig:papelall}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.465\textwidth}
+        \includegraphics[width=\textwidth]{stdx.eps}
+	\caption{$\sigma_X$ matrix over the inferior third of the frequency band.}
+        \label{fig:papelstd_stdx}
+    \end{subfigure}
+    ~\\ 
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{stdy.eps}
+	\caption{$\sigma_Y$ matrix over the middle third of the frequency band.}
+        \label{fig:papelstd_stdy}
+    \end{subfigure}
+  ~
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{stdz.eps}
+	\caption{$\sigma_Z$ matrix over the superior third of the frequency band.}
+        \label{fig:papelstd_stdz}
+    \end{subfigure}
+    
+    \caption{Temporal speckle deviation matrix of paper piece.}
+    \label{fig:papelstd}
+\end{figure}
+
+
+In Figure \ref{fig:papelilllevel} we present the relation between an average value of $\sigma_p$,
+in the $\sigma$ matrix, with a value $\mu_p$ (mean value representing the illumination level) of the $\mu$ matrix, to all frequency bands, the value $\mu_p$
+is related to the illumination level in the surface of the sample \cite{Nothdurft:05}
+and the color or material of sample. Thus, when we choose $\mu_p$  as reference 
+in a homogeneous sample,  
+in true we choose indirectly the illumination level in the surface.
+Therefore, Fig. \ref{fig:papelilllevel} shows the variables $\sigma_p$, $e_p$ and $L_p$ in function
+of  $\mu_p$, to the case of the complete frequency band (\ref{fig:illlevel_all}), the inferior third of the frequency band (\ref{fig:illlevel_stdx}),
+the middle third of the frequency band (\ref{fig:illlevel_stdy}) and the superior third of the frequency band (\ref{fig:illlevel_stdz}). It is import to note that $e_p$ was plot as a relation of $\sigma_p$, this means  $100 \frac{e_p}{\sigma_p} \%$.
+
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{stdall_curve.eps}
+	\caption{Analysis in the complete frequency band.}
+        \label{fig:illlevel_all}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{stdx_curve.eps}
+	\caption{Analysis in the inferior third of the frequency band.}
+        \label{fig:illlevel_stdx}
+    \end{subfigure}
+    ~\\ 
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{stdy_curve.eps}
+	\caption{Analysis in the middle third of the frequency band.}
+        \label{fig:illlevel_stdy}
+    \end{subfigure}
+  ~
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{stdz_curve.eps}
+	\caption{Analysis in the superior third of the frequency band.}
+        \label{fig:illlevel_stdz}
+    \end{subfigure}
+    
+    \caption{Relation between the standard deviation value and the illumination level in a steady paper under laser illumination.}
+    \label{fig:papelilllevel}
+\end{figure}
+
+In Figure \ref{fig:illlevel_all}, we observe the absence of tendency in the DLSI ($\sigma$) with respect to the intensity ($\mu$), i.e. with the increase of the $\mu$ value the standard deviation ($\sigma$) does not increase or decrease. However, around that constant there is a spread of $\sigma$ to each value of $\mu$ that creates an uncertainty in the outcome, and expressed by the error $e$. Figure \ref{fig:illlevel_all} represents the outcome from the data without filtering, thus with all frequencies. And the data is the noise present in the processes of illumination and image acquiring because the sample is a steady paper without changes in the scatterers of the laser light.
+Nevertheless, when we filter the signal (images in time), we can observe a change in the $\sigma$ with respect to the frequency range, unveiling the dependency of the DLSI to the level of illumination and its relation to the frequency.
+In Figure \ref{fig:illlevel_stdx}, in the inferior third of the frequency band, there is a tendency in the $\sigma$ value with respect to the level of light. The DLSI changes its value with respect to the illumination level, where in low illumination level one had highest error, with the $\sigma$ values spread around the mean value, and the error tending to zero when the level of light increased in some areas of the sample. The same behavior happened in the middle level of frequency band, and much less in the superior third of the frequency band, meaning that in the highest frequencies one had less influence of the level of light in the $\sigma$ values. Since the $\sigma$ DLSI does not filter the signal \cite{RIVERA2017144}, it must be considered this situation during the DLSI usage, as one can compromise the outcome by the influence of the illumination of the sample in the results. Dynamic laser speckle indexes can offer other index  options to circumvent that influence, for example, using the Absolute Value of the Differences DLSI and its variations \cite{BSLTLBOOK}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion} 
+
+In this work were presented comparisons between the values of the temporal speckle 
+deviation index to three different frequency bands of the speckle signal and
+different illuminations levels, in a
+dynamic laser speckle analysis. The results showed that the influence of the illumination level in
+the DLSI index decreases with the use of signals with high frequency bands.
+
+
+\section{Acknowledgment}
+We wish to acknowledge the partial financial support for this study provided by the $CAPES$ 
+scholarship
+$PNPD$ Program, $FAPEMIG$ and $CNPQ$.
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+\section{Bibliography}
+\bibliography{report}   %>>>> bibliography data in report.bib
+\bibliographystyle{spiebib}   %>>>> makes bibtex use spiebib.bst
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 
+
+
