@@ -65,24 +65,29 @@ clear DATAT0
 
 
 [Cx Dx Ex]=stdcont(DATATx,'off');
+[Cy Dy Ey]=stdcont(DATATy,'off');
+[Cz Dz Ez]=stdcont(DATATz,'off');
+
+DMAX=max([max(max(Dx)) max(max(Dy)) max(max(Dz))  max(max(D))]);
+DMIN=min([min(min(Dx)) min(min(Dy)) min(min(Dz))  min(min(D))]);
+
 figure(7);
-imagesc(Dx);
+imagesc(Dx,[DMIN DMAX]);
 colorbar();
 title(['Std: filtered from 0.000 Fs/2 to 0.333 Fs/2 '])
 colormap(jet);
 print(figure(7),fullfile(OUTPUT,'stdx.eps'),'-depsc',['-F:',int2str(FONTSIZE)]);
 
-[Cy Dy Ey]=stdcont(DATATy,'off');
+
 figure(8);
-imagesc(Dy);
+imagesc(Dy,[DMIN DMAX]);
 colorbar();
 title(['Std: filtered from 0.333 Fs/2 to 0.666 Fs/2 '])
 colormap(jet);
 print(figure(8),fullfile(OUTPUT,'stdy.eps'),'-depsc',['-F:',int2str(FONTSIZE)]);
 
-[Cz Dz Ez]=stdcont(DATATz,'off');
 figure(9);
-imagesc(Dz);
+imagesc(Dz,[DMIN DMAX]);
 colorbar();
 title(['Std: filtered from 0.666 Fs/2 to 1.000 Fs/2 '])
 colormap(jet);
