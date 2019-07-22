@@ -1,3 +1,4 @@
+
 \documentclass[review]{elsarticle}
 \usepackage{comment}
 \usepackage{url}
@@ -60,7 +61,7 @@
 
 \begin{frontmatter}
 
-\title{Illumination Level Independence in the Dynamic Laser Speckle Analysis}
+\title{Analysis of Illumination Dependency  in the Dynamic Laser Speckle Analysis}
 %\tnotetext[mytitlenote]{Fully documented templates are available in the 
 %elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
 
@@ -126,10 +127,10 @@ the temporal speckle deviation matrix \cite{Nothdurft:05} with the illumination 
 \section{System description}
 \label{sec:description}
 
-\subsection{Data packages of drying ink}
+\subsection{Data packages of ink drying}
 \label{sec:descriptionink}
 Fig. \ref{fig:system} shows the system setup of the ink sample test during drying where
-a red laser was pointed to a layer of drying ink monitored by a digital camera;
+a red laser was pointed to a layer of ink drying monitored by a digital camera;
 the images are collected receiving two different illumination levels, because of the neutral 
 density lens covering partially the laser beam \cite{REIS2016}.
 The images were placed in data packages and
@@ -140,13 +141,16 @@ $0$, $10$, $20$, $30$, $40$, $50$, $60$, $75$,$105$,$120$ and $150$ of drying pr
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=0.65\columnwidth]{system.eps}
-\caption{Experimental configuration of dynamic laser speckle formation monitored by digital system with the levels of illumination over a layer of drying ink.}
+\caption{Experimental configuration of dynamic laser speckle formation monitored by digital system with the levels of illumination over a layer of ink drying.}
 \label{fig:system}
 \end{figure}
 In each image of the packages were selected two regions, of $250\times200$ pixels, 
 corresponding to the regions with two different illumination levels, 
-as shown with red lines in the Fig. \ref{fig:regions}; thus, in the right side of the Fig. \ref{fig:regions}  we have the
-portion of image that was altered by the neutral density lens. 
+as shown with red lines in the Fig. \ref{fig:regions}; thus, 
+in the right side of the Fig. \ref{fig:regions}  we have the
+portion of image that was altered by the neutral density lens.
+Thus, the right side has low illumination, and
+the left side has a high illumination.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.85\columnwidth]{meanall_points_all.eps}
@@ -203,31 +207,35 @@ the sum of signals $P_X+P_Y+P_Z=P_T$.
 
 \subsection{Temporal speckle deviation matrix}
 \label{subsec:deviation}
-The temporal speckle deviation matrix ($\sigma$) \cite{Nothdurft:05} 
-used to compare the results was obtained from the $N$ images of a data package.
-We designate to each image, in the package $P$, as $\mathbf{I}_{k}$, $1\leq k \leq N$, being $k$ an integer;
-thus, to get the value $\sigma$, 
- it is necessary to get 
-the matrix $\sigma$ as seen in the Equation \ref{eq:cont2}, 
+The temporal speckle deviation matrix ($\sigma$) \cite{Nothdurft:05},
+used to compare the results, it was obtained from the $N$ images of the data package $P$.
+We designate to each image matrix, in the package $P$, as $\mathbf{I}_{k}$, $1\leq k \leq N$, 
+being $k$ an integer index that indicates that it is in use the $k$-th image $\mathbf{I}$ in the package.
+Thus, to get
+% the value $\bar{\sigma}$, it is necessary to get 
+the matrix $\sigma$ is used the Equation \ref{eq:cont2}, 
 \begin{equation}\label{eq:cont2}
 \sigma  = \sqrt{ \frac{1}{N} \sum_{k=1}^{N} (\mathbf{I}_{k}-\mu)^2  },
 \end{equation}
-being that, the value $\mu$ can be calculated as, 
+being that, the matrix $\mu$ can be calculated as, 
 \begin{equation}\label{eq:cont1}
-\mu =  \frac{1}{N} \sum_{k=1}^{N} \mathbf{I}_{k},
+\mu =  \frac{1}{N} \sum_{k=1}^{N} \mathbf{I}_{k}.
 \end{equation}
+In these last two equations, all the operations are matricial, 
+so that each element (aka pixel) $\mathbf{I}_{k}(i)$ in the matrix $\mathbf{I}_{k}$
+should be processed with your  counterpart $\mathbf{I}_{k+1}(i)$ in the matrix $\mathbf{I}_{k+1}$.
 
 
-Additionally, the temporal speckle deviation index can be defined as $\bar{\sigma}=<\sigma>$, the mean value
+Aditionally, the ``temporal speckle deviation index'' can be defined as $\bar{\sigma}=<\sigma>$, the mean value
 of all elements in $\sigma$, being $<.>$ the mean spatial operator.
 %And $\sigma_p$ as any value of an element in  $\sigma$.
 
-\subsection{Datapack processing in the test of a drying ink}
+\subsection{Datapack processing in the test of a ink drying}
 \label{subsec:numprocink}
 
-We have in the drying ink regions
+We have in the ink drying regions
 two levels of illumination; thus, we  separated each package in two sub package
-(left and right), representing each one of the regions shown in the Fig. \ref{fig:regions}.
+(high and low illumination), representing each one of the regions shown in the Fig. \ref{fig:regions}.
 These sub-packages were filtered,
 obtaining the packages $P_T$, $P_X$, $P_Y$ and $P_Z$, that was used to obtain
 \begin{figure}[h!]
@@ -283,10 +291,10 @@ temporal speckle deviation matrix, as can be seen in the Fig. \ref{fig:filtering
 \section{Numerical results} 
 \label{sec:numerical}
 
-\subsection{Numerical results o the drying ink test} 
+\subsection{Numerical results o the ink drying test} 
 \label{subsec:numericalink}
 In the Fig. \ref{fig:numerical}, we can see the result of processing 
- the drying ink test under the dynamic laser speckle index (DLSI) in two areas with different level of illumination. The Fig. \ref{fig:allink}
+ the ink drying test under the dynamic laser speckle index (DLSI) in two areas with different level of illumination. The Fig. \ref{fig:allink}
 represents the $\bar{\sigma}_T$ value in two light intensity levels, and it is done using the package $P_T$
 trough the time, with the complete frequency bands.
 The Fig. \ref{fig:stdxink}
@@ -327,7 +335,7 @@ trough the time, with the frequency band between $\frac{2}{3}\frac{F_s}{2}$ and 
 \caption{Numerical results in the ink drying test.}\label{fig:numerical}
 \end{figure}
 As can be seen, when we analyzed the index over the complete frequency band (Fig. \ref{fig:allink}),
-we had different results to both illuminations levels, being high in the left side,that is the side with most illumination. This 
+we had different results to both illuminations levels, being high in the left side of the Figure \ref{fig:regions} and low in the right. This 
 indicates a positive influence of illumination level in the index value.
 By other side, if we observe the Figures \ref{fig:stdxink}, \ref{fig:stdyink} and \ref{fig:stdzink}
 we can see how the index values from different
@@ -335,7 +343,7 @@ illuminations  was similar to the frequency level,
 being greatest similarity in the frequency band between $\frac{2}{3}\frac{F_s}{2}$ and $\frac{F_s}{2}$ Hz.
 Thus the similarity is limited by the sampling rate used.
 
-Finally, it is important to highlight that in the drying ink test, the information from the dynamic laser speckle is linked to high frequencies in the beginning of the drying process and  speckle signals with low frequencies at end, being gradual the transition
+Finally, it is important to highlight that in the ink drying test, the information from the dynamic laser speckle is linked to high frequencies in the beginning of the drying process and  speckle signals with low frequencies at end, being gradual the transition
 until reach the lowest level of signal with only the noise of test.
 In Figure \ref{fig:numerical} ($c-d$) one can see that after 50 minutes there is a transition of state with the stabilization of the DLSI. Thus, after this point, one has only the inner noise of the system influencing the DLSI.
 
