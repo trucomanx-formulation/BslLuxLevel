@@ -76,7 +76,9 @@ it was selected  trying to achieve the best speed of sampling to observe each ph
 The purpose of these two tests is to observe the behavior of the indices in two cases; 
 one with an activity homogeneous level in space and time, and another with a heterogeneous activity.
 Thus, given that the paper activity test and the ink drying test are independent events, 
-without comparison between them self, your sampling frequencies are different.
+without comparison between them self, your sampling frequencies are different,
+and selected according to the best behavior of the curves, 
+being more appropriate higher sampling frequencies for the ink drying test.
 
 #2. When defining σ and μ matrices [Eqs. (1) y (2)] authors should clarify that both are matrices
 #and involved operations should be performed element by element (as is detailed in Ref. [11]).
@@ -111,8 +113,8 @@ that for this test we consider approximately homogeneous in its characteristics 
 will show us  the variation effect of an unique parameter, the light intensity on the dynamic speckle analysis.
 
 [corrigido]
- The activity level analysis in the  ink drying process has as objective  analyze the behavior of dynamic a speckle index, 
-in the context of a process that change your characteristic in time. 
+The activity level analysis in the ink drying process has as objective to analyze the behavior of speckle index in a  dynamic process,
+in the context of a system that change your characteristic in time. 
 
 #5. The illumination level determines somehow the dynamic range of the grayscale that results from
 #the inferferences giving rise to the speckle pattern. The minimum gray level (which correspond
