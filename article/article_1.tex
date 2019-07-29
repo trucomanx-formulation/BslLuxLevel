@@ -183,6 +183,13 @@ close to the top of the image.
 \section{Numerical analysis}
 \label{sec:analysis}
 
+The sampling frequency used in the analysis of each test, 
+it was selected  trying to achieve the best speed of sampling to observe each phenomenon. 
+The purpose of these two tests is to observe the behavior of the indices in two cases; 
+one with an activity homogeneous level in space and time, and another with a heterogeneous activity.
+Thus, given that the paper activity test and the ink drying test are independent events, 
+without comparison between them self, your sampling frequencies are different.
+
 \subsection{Data package filtering in three frequency band}
 \label{subsec:firfilters}
 Each data package or sub package ($P_T$) went through of a filter bank with 4 outputs  having each
@@ -227,8 +234,50 @@ should be processed with your  counterpart $\mathbf{I}_{k+1}(i)$ in the matrix $
 
 
 Aditionally, the ``temporal speckle deviation index'' can be defined as $\bar{\sigma}=<\sigma>$, the mean value
-of all elements in $\sigma$, being $<.>$ the mean spatial operator.
+of all elements in the matrix $\sigma$, being $<.>$ the mean spatial operator.
 %And $\sigma_p$ as any value of an element in  $\sigma$.
+
+
+\subsection{Fujii matrix}
+\label{subsec:fujii}
+
+The Fujii matrix \cite{Fujii:87} is obtained from the $N$ images in the data package $P$.
+Similarly to the Section \ref{subsec:deviation}, 
+we designate to each image matrix, in the package $P$, as $\mathbf{I}_{k}$, $1\leq k \leq N$.
+Thus, to get the Fujii matrix is used the Equation \ref{eq:contFujii2}, 
+\begin{equation}\label{eq:contFujii2}
+Fujii  = \frac{1}{N-1} \sum_{k=1}^{N-1} \frac{|\mathbf{I}_{k}-\mathbf{I}_{k+1}|}{\mathbf{I}_{k}+\mathbf{I}_{k+1}}.
+\end{equation} 
+The  Fujii matrix mean value can be defined as $\overline{Fujii}=<Fujii>$, the mean value
+of all elements in the matrix $Fujii$.
+
+The Fujii matrix method represents the attempt to eliminate 
+the dependence on illumination level, in a speckle index.
+For this purpose, the method define the index as the mean value of the  first order high pass FIR filter, 
+$\mathbf{I}_{k}-\mathbf{I}_{k+1}$,
+whose values are corrected using an approximation of the intensity mean value, $\frac{\mathbf{I}_{k}+\mathbf{I}_{k+1}}{2}$.
+This calculation aspect is the strong point of the method,
+because the Fujii method assumes that the increase in the speckle 
+light dynamic range ($\mathbf{I}_{k}-\mathbf{I}_{k+1}$) 
+will be linear in proportion with the increase in laser light ($\frac{\mathbf{I}_{k}+\mathbf{I}_{k+1}}{2}$).
+This means that the method already uses high frequency components, of the speckle signal, 
+and discards those of low frequency, in addition  to attempting to correct or normalize the index value;
+and it is for these characteristics that it shows an acceptable performance, 
+to eliminate or decrease the dependence of the index with the laser intensity level.
+
+Additionally, it was defined the matrix $Fujii_{\alpha}$, 
+as the filtered version of package $P$ to the frequency band $\alpha$, following the Equation \ref{eq:contFujii3}.
+\begin{equation}\label{eq:contFujii3}
+Fujii_{\alpha}  = \frac{1}{N-1} \sum_{k=1}^{N-1} \frac{|\mathbf{(I_{\alpha})}_{k}-\mathbf{(I_{\alpha})}_{k+1}|}{\mathbf{I}_{k}+\mathbf{I}_{k+1}}.
+\end{equation}
+It is important to highlight that the numerator of the last equation, 
+use the signal in the matrices $\mathbf{(I_{\alpha})}_{k}$, that are filtered versions in the frequency band $\alpha$,
+of the matrix $\mathbf{I}_{k}$. 
+By other side, the denominator use the signal $\mathbf{I}_{k}$ which has the complete frequency band.
+This modification was implemented because the numerator, in the calculus, 
+represents or try be the mean value of speckle light intensity, 
+and it value tend to zero in frequency bands without 0 hertz components.
+
 
 \subsection{Datapack processing in the test of a ink drying}
 \label{subsec:numprocink}
@@ -291,8 +340,18 @@ temporal speckle deviation matrix, as can be seen in the Fig. \ref{fig:filtering
 \section{Numerical results} 
 \label{sec:numerical}
 
+
+In the analysis, the minimum grayscale value, 
+it is fixed by the observable minimum light by the camera or the minimum speckle light intensity in the material analyzed.
+By other side, the maximum grayscale value, 
+it is fixed by the observable maximum light by the camera or the maximum speckle light intensity in the material analyzed.
+
 \subsection{Numerical results o the ink drying test} 
 \label{subsec:numericalink}
+
+The activity level analysis in the  ink drying process has as objective  analyze the behavior of dynamic a speckle index, 
+in the context of a process that change your characteristic in time. 
+
 In the Fig. \ref{fig:numerical}, we can see the result of processing 
  the ink drying test under the dynamic laser speckle index (DLSI) in two areas with different level of illumination. The Fig. \ref{fig:allink}
 represents the $\bar{\sigma}_T$ value in two light intensity levels, and it is done using the package $P_T$
@@ -334,6 +393,7 @@ trough the time, with the frequency band between $\frac{2}{3}\frac{F_s}{2}$ and 
     
 \caption{Numerical results in the ink drying test.}\label{fig:numerical}
 \end{figure}
+
 As can be seen, when we analyzed the index over the complete frequency band (Fig. \ref{fig:allink}),
 we had different results to both illuminations levels, being high in the left side of the Figure \ref{fig:regions} and low in the right. This 
 indicates a positive influence of illumination level in the index value.
@@ -353,6 +413,16 @@ the noise as outcome.
 
 \subsection{Numerical results of a steady paper under laser light} 
 \label{subsec:numericalpaper}
+
+%The paper piece test has a quasi-circular laser light distribution around a center and with decreasing light intensity with increasing the radius.
+
+Even if the activity level of a paper piece, 
+it  is considered as noise in the context of other tests, where takes place over it, 
+a process of greater activity and variant in time and space. 
+The speckle signal analysis of a paper piece, 
+that for this test we consider approximately homogeneous in its characteristics over time and space,
+will show us  the variation effect of an unique parameter, the light intensity on the dynamic speckle analysis.
+
 In the Fig. \ref{fig:papelstd} we can see the result of data processing from the steady
  paper under dynamic laser speckle phenomenon considering an homogeneous illumination and using the standard deviation $\sigma$ as a dynamic laser speckle index (DLSI). Fig. \ref{fig:papelall}
 represents the $\sigma_T$ matrix with the complete frequency band, while Fig. \ref{fig:papelstd_stdx}
@@ -391,15 +461,19 @@ represents the $\sigma_Z$ matrix with the frequency band between $\frac{2}{3}\fr
 
 
 In Figure \ref{fig:papelilllevel} we present the relation between an average value of $\sigma_p$,
-in the $\sigma$ matrix, with a value $\mu_p$ (mean value representing the illumination level) of the $\mu$ matrix, to all frequency bands, the value $\mu_p$
+in the $\sigma$ matrix, with a value $\mu_p$ (mean value representing the illumination level) of the $\mu$ matrix, 
+in the complete frequency band, the value $\mu_p$
 is related to the illumination level in the surface of the sample \cite{Nothdurft:05}
 and the color or material of sample. Thus, when we choose $\mu_p$  as reference 
 in a homogeneous sample,  
 in true we choose indirectly the illumination level in the surface.
 Therefore, Fig. \ref{fig:papelilllevel} shows the variables $\sigma_p$, $e_p$ and $L_p$ in function
 of  $\mu_p$, to the case of the complete frequency band (\ref{fig:illlevel_all}), the inferior third of the frequency band (\ref{fig:illlevel_stdx}),
-the middle third of the frequency band (\ref{fig:illlevel_stdy}) and the superior third of the frequency band (\ref{fig:illlevel_stdz}). It is import to note that $e_p$ was plot as a relation of $\sigma_p$, this means  $100 \frac{e_p}{\sigma_p} \%$.
-
+the middle third of the frequency band (\ref{fig:illlevel_stdy}) and the superior third of the frequency band (\ref{fig:illlevel_stdz}). It is import to note that $e_p$ was plot as a relation of $\sigma_p$, this means  $100 \frac{e_p}{\sigma_p} \%$,
+and $L_p$ is the histogram of the values in temporal speckle mean matrix, 
+given that the mean value is zero to any frequency band without the zero frequency,
+in the figures are showed the $L_p$ values of the complete frequency band, 
+with the objective of to have a reference of the illumination level and the number of pixels involved in the analysis.
 
 \begin{figure}[h!]
     \centering
@@ -435,13 +509,92 @@ In Figure \ref{fig:illlevel_all}, we observe the absence of tendency in the DLSI
 Nevertheless, when we filter the signal (images in time), we can observe a change in the $\sigma$ with respect to the frequency range, unveiling the dependency of the DLSI to the level of illumination and its relation to the frequency.
 In Figure \ref{fig:illlevel_stdx}, in the inferior third of the frequency band, there is a tendency in the $\sigma$ value with respect to the level of light. The DLSI changes its value with respect to the illumination level, where in low illumination level one had highest error, with the $\sigma$ values spread around the mean value, and the error tending to zero when the level of light increased in some areas of the sample. The same behavior happened in the middle level of frequency band, and much less in the superior third of the frequency band, meaning that in the highest frequencies one had less influence of the level of light in the $\sigma$ values. Since the $\sigma$ DLSI does not filter the signal \cite{RIVERA2017144}, it must be considered this situation during the DLSI usage, as one can compromise the outcome by the influence of the illumination of the sample in the results. Dynamic laser speckle indexes can offer other index  options to circumvent that influence, for example, using the Absolute Value of the Differences DLSI and its variations \cite{BSLTLBOOK}.
 
+\subsection{Numerical results using Fujii} 
+\label{subsec:vsfujii}
 
+The Figure \ref{fig:fujiiallink} shows the behavior of mean value to the Fujii matrix
+defined in the Equation \ref{eq:contFujii2}.
+The Figures \ref{fig:fujiixink}, \ref{fig:fujiiyink} and \ref{fig:fujiizink},
+show the behavior of mean value to the Fujii matrix defined in the Equation \ref{eq:contFujii3},
+to the cases of frequency bands X,Y and Z respectively. 
+\begin{figure}[!h]
+    \centering
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{fujii-all.eps}
+	\caption{Fujii value in the complete band.}
+        \label{fig:fujiiallink}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{fujii-bandx.eps}
+	\caption{Fujii value in the X band.}
+        \label{fig:fujiixink}
+    \end{subfigure}
+    ~\\ 
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{fujii-bandy.eps}
+	\caption{Fujii value in the Y band.}
+        \label{fig:fujiiyink}
+    \end{subfigure}
+  ~
+    \begin{subfigure}[b]{0.475\textwidth}
+        \includegraphics[width=\textwidth]{fujii-bandz.eps}
+	\caption{Fujii value in the Z band.}
+        \label{fig:fujiizink}
+    \end{subfigure}
+    
+\caption{Numerical results in the ink drying test using Fujii index.}
+\label{fig:numericalvsfujii}
+\end{figure}
+
+As can be seen in all the images, the curves with more and less  illumination level are close,
+but there is no advantage in separating the signals by bands
+this can be explained if we analyze how the index synthesizes its value and we compares it with the images.
+First the Fujii index makes a high pass filtering,
+this is evident if we look at the maximum values of the curves,
+being greater in the Z (high frequencies) band and rapidly decrease in the Y and X (low frequencies) bands.
+Second, the index undergoes a normalization, in the denominator of the Equation \ref{eq:contFujii2},
+with the intention of reducing the index dependence with the sample level of illumination.
+Not to mention that this normalization, in the case of frequency band analysis, is done with unfiltered signal data.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion} 
 
-In this work were presented comparisons between the values of the temporal speckle 
+In the ink drying test, 
+we analyze the effect produced in  the speckle light intensity and, consequently, in the standard deviation index, 
+by the separation of the signals in different frequency bands;
+when there is a process that changes its behavior over time.
+
+In the paper piece test, we consider that no material is completely inert, 
+and consequently, 
+a dynamic speckle analysis will show us how the speckle light intensity variations can be interpret as the sample activity level or as the set default level noise in the test,
+we use the first case,
+the effect in the speckle light intensity occasioned by the laser light intensity variation.
+
+
+By the analysis shown in the Figures \ref{fig:illlevel_stdx}, \ref{fig:illlevel_stdy} and \ref{fig:illlevel_stdz};
+we can observe that the greater the laser illumination level $\mu_p$, 
+the greater the range of speckle light intensity variation $\sigma_p$ of each pixel analyzed, 
+however this increase depend of speckle signal frequency band analyzed.
+This is reaffirmed by the analysis of the ink drying test, 
+seen in the Figures \ref{fig:stdxink}, \ref{fig:stdyink} and \ref{fig:stdzink},
+where the curves of regions with high and low luminosity are compared.
+
+Thus, by the results shown in the Figures \ref{fig:numerical} and \ref{fig:papelilllevel},
+we can theorize that this augmentative effect of the dynamic range in the speckle, acts predominantly on speckle signals with low frequency components, and in smaller predominance on speckle signals with high frequency components. 
+This hypothesis is supported by other works with similar results \cite{Nothdurft:05},
+where the temporal speckle mean matrix shows information about the surface of sample and the laser illumination level, and the temporal speckle deviation matrix shows information of material inside at different levels and in less proportion the information of the laser illumination level.
+Given that the mean value collect information of zero frequency component in the speckle signal, 
+and the standard deviation  collect information of non-zero frequency components.
+We can make a parallel, with the results obtained in the present work,
+and thus  to indicate that the speckle signals with frequency components with greater value are less affected in their dynamic range by the variation of the laser light intensity.
+By analyzing the index Fujii, we also highlight that generalizations cannot be made for all speckle indices,
+In this work we mainly use the standard deviation, because its calculation is directly linked to the value, or amplitude, root mean square of the signals.
+In counter-parted, the Fujii index makes a previous filtering and a non-linear scaling with respect to the light intensity, which hinders a fair interpretation, of its behavior for different frequency bands.
+
+
+Thus, in this work were presented comparisons between the values of the temporal speckle 
 deviation index to three different frequency bands of the speckle signal and
 different illuminations levels, in a
 dynamic laser speckle analysis. The results showed that the influence of the illumination level in

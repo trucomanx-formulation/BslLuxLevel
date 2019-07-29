@@ -70,11 +70,12 @@
 #rate as for the drying ink. I imagine this should have an impact on the analysis of frequency
 #components.
 
----- The sampling frequency used in the analysis of each test, 
+[corrigido]
+The sampling frequency used in the analysis of each test, 
 it was selected  trying to achieve the best speed of sampling to observe each phenomenon. 
 The purpose of these two tests is to observe the behavior of the indices in two cases; 
-one with a homogeneous level of activity in space and time, and another with a dynamic activity.
-Thus, given that the ink drying test and the paper activity test are independent events, 
+one with an activity homogeneous level in space and time, and another with a heterogeneous activity.
+Thus, given that the paper activity test and the ink drying test are independent events, 
 without comparison between them self, your sampling frequencies are different.
 
 #2. When defining σ and μ matrices [Eqs. (1) y (2)] authors should clarify that both are matrices
@@ -101,16 +102,17 @@ without comparison between them self, your sampling frequencies are different.
 #to present first the measurements for the paper and then those for the drying ink.
 
 
----- Even if the activity level of a paper piece, 
+[corrigido] 
+Even if the activity level of a paper piece, 
 it  is considered as noise in the context of other tests, where takes place over it, 
 a process of greater activity and variant in time and space. 
-The activity analysis of a piece of paper, 
+The speckle signal analysis of a paper piece, 
 that for this test we consider approximately homogeneous in its characteristics over time and space,
-will show us  the effect of a unique parameter, the light intensity variation,  
-on the dynamic speckle analysis.
+will show us  the variation effect of an unique parameter, the light intensity on the dynamic speckle analysis.
 
----- The activity level analysis in the  ink drying process has as objective  analyze the behavior of dynamic speckle index, 
-in the context of a process that change your characteristic in the time. 
+[corrigido]
+ The activity level analysis in the  ink drying process has as objective  analyze the behavior of dynamic a speckle index, 
+in the context of a process that change your characteristic in time. 
 
 #5. The illumination level determines somehow the dynamic range of the grayscale that results from
 #the inferferences giving rise to the speckle pattern. The minimum gray level (which correspond
@@ -123,24 +125,55 @@ in the context of a process that change your characteristic in the time.
 #that a greater dynamic range (higher illumination level) would yield a greater dispersion and,
 #therefore, a higher standard deviation in obtained gray levels.
 
----- In the analysis, the minimum grayscale value, 
-it is fixed by the observable minimum light by the camera or the minimum speckle light intensity in the analyzed material.
-In the case of paper piece test, we consider that no material is completely inert, 
-and consequently, 
-a dynamic speckle analysis will show us as the speckle light intensity variation can be interpret as the sample activity level or the set default level noise in the test.
-In the case of paper piece test, 
-we will interest know the first case, 
-the effect in the speckle light intensity occasioned by  laser light intensity variation.
+[corrigido]
+In the analysis, the minimum grayscale value, 
+it is fixed by the observable minimum light by the camera or the minimum speckle light intensity in the material analyzed.
 By other side, the maximum grayscale value, 
-it is fixed by the observable maximum light by the camera or the maximum speckle light intensity in the analyzed material.
-the greater the laser illumination level , the greater the range of speckle light intensity variation of each pixel analyzed.
-But, by the analyzes shown in Figures 7 and 9,
+it is fixed by the observable maximum light by the camera or the maximum speckle light intensity in the material analyzed.
+
+[corrigido]
+The paper piece test has a quasi-circular laser light distribution around a center and with decreasing light intensity with increasing the radius.
+In this test, we consider that no material is completely inert, 
+and consequently, 
+a dynamic speckle analysis will show us how the speckle light intensity variations can be interpret as the sample activity level or as the set default level noise in the test,
+we will be interested to know the first case,
+the effect in the speckle light intensity occasioned by the laser light intensity variation.
+The greater the laser illumination level, the greater the range of speckle light intensity variation of each pixel analyzed when we use the full frequency band.
+
+[corrigido]
+In the ink drying test, 
+we analyze the effect produced in  the speckle light intensity and, consequently, in the standard deviation index, 
+by the separation of the signals in different frequency bands;
+when there is a process that changes its behavior over time.
+
+[corrigido]
+In the paper piece test, we consider that no material is completely inert, 
+and consequently, 
+a dynamic speckle analysis will show us how the speckle light intensity variations can be interpret as the sample activity level or as the set default level noise in the test,
+we use the first case,
+the effect in the speckle light intensity occasioned by the laser light intensity variation.
+
+[corrigido]
+By the analysis shown in the Figures \ref{fig:illlevel_stdx}, \ref{fig:illlevel_stdy} and \ref{fig:illlevel_stdz};
+we can observe that the greater the laser illumination level $\mu_p$, 
+the greater the range of speckle light intensity variation $\sigma_p$ of each pixel analyzed, 
+however this increase depend of speckle signal frequency band analyzed.
+This is reaffirmed by the analysis of the ink drying test, 
+seen in the Figures \ref{fig:stdxink}, \ref{fig:stdyink} and \ref{fig:stdzink},
+where the curves of regions with high and low luminosity are compared.
+
+[corrigido]
+Thus, by the results shown in the Figures \ref{fig:numerical} and \ref{fig:papelilllevel},
 we can theorize that this augmentative effect of the dynamic range in the speckle, acts predominantly on speckle signals with low frequency components, and in smaller predominance on speckle signals with high frequency components. 
-This hypothesis is supported by other works with similar results [11],
-where the temporal speckle mean matrix show information about the surface of sample and laser illumination level, and the temporal speckle deviation matrix show information of material inside at different levels and in less proportion the information of the laser illumination level.
-Given that the mean value show information of zero frequency component in the signal, and the standard deviation  show information of non-zero frequency component.
+This hypothesis is supported by other works with similar results \cite{Nothdurft:05},
+where the temporal speckle mean matrix shows information about the surface of sample and the laser illumination level, and the temporal speckle deviation matrix shows information of material inside at different levels and in less proportion the information of the laser illumination level.
+Given that the mean value collect information of zero frequency component in the speckle signal, 
+and the standard deviation  collect information of non-zero frequency components.
 We can make a parallel, with the results obtained in the present work,
-and to indicate that the speckle signals with components in frequency with greater value are less affected in their dynamic range by the variation of the laser light intensity.
+and thus  to indicate that the speckle signals with frequency components with greater value are less affected in their dynamic range by the variation of the laser light intensity.
+By analyzing the index Fujii, we also highlight that generalizations cannot be made for all speckle indices,
+In this work we mainly use the standard deviation, because its calculation is directly linked to the value, or amplitude, root mean square of the signals.
+In counterparted, the Fujii index makes a previous filtering and a non-linear scaling with respect to the light intensity, which hinders a fair interpretation, of its behavior for different frequency bands.
 
 #6. Authors analyze the dependency of a dynamic speckle index with the illumination level of a
 #sample that is homogeneously illuminated (i.e. without density filter) and also static. I’d like
@@ -148,15 +181,16 @@ and to indicate that the speckle signals with components in frequency with great
 #for the piece of paper. Anyone would like to see that comparison, as I stated before.
 
 [corrigido]
----- It is the same answer as theme 4.
+It is the same answer as theme 4.
 
 #7. In Figs. 9(a)–(d), the Lp vs. μp curves are identical, for all frequency ranges. How do you
 #explain this? Logically this should not be the case and I suppose there has been some mistake
 #in data presentation.
 
----- Lp is the histogram of the values in temporal speckle mean matrix, 
+[corrigido]
+Lp is the histogram of the values in temporal speckle mean matrix, 
 given that the mean value is zero to any frequency band without the zero frequency,
-in the are figures are showed the Lp values of the complete frequency band, 
+in the figures are showed the Lp values of the complete frequency band, 
 with the objective of to have a reference of the illumination level and the number of pixels involved in the analysis.
 
 #8. In my opinion, the description of the procedures and methods employed is not clear enough.
@@ -169,15 +203,18 @@ with the objective of to have a reference of the illumination level and the numb
 #the manuscript, which in my opinion are worth doing.
 
 [corrigido]
----- It is the same answer as theme 4 and 5.
+It is the same answer as theme 4 and 5.
 
-9. It is not clear how do authors interpret the statistical parameters σp and ep and how do they
-relate them to the variations of illumination level. At first place because those parameters are
-not used for a dynamic sample (drying ink) with clearly differentiated illumination level zones
-and, second, because in the case of the static sample (paper) the variations of illumination level
-are intrinsically due to the shape of the illuminating beam and also to speckle. In other words,
-it is not clear how the variations in the speckle intensity distribution are decoupled from the
-intrinsic variations of illumination levels of the wavefront along the recorded image.
+#9. It is not clear how do authors interpret the statistical parameters σp and ep and how do they
+#relate them to the variations of illumination level. At first place because those parameters are
+#not used for a dynamic sample (drying ink) with clearly differentiated illumination level zones
+#and, second, because in the case of the static sample (paper) the variations of illumination level
+#are intrinsically due to the shape of the illuminating beam and also to speckle. In other words,
+#it is not clear how the variations in the speckle intensity distribution are decoupled from the
+#intrinsic variations of illumination levels of the wavefront along the recorded image.
+
+[corrigido]
+It is the same answer as theme 4 and 5.
 
 #10. The manuscript’s title leads to think that the independence of the speckle activity index with
 #illumination level is going to be demonstrated, and this does not seem to be the case. In fact,
@@ -195,14 +232,18 @@ intrinsic variations of illumination levels of the wavefront along the recorded 
 
   -
 #The paper considers the important issue of the influence of non-uniform illumination on the accuracy of data processing in dynamic speckle analysis. This issue arises as a consequence of the signal dependent nature of speckle fluctuations. The authors consider building a temporal standard deviation matrix as a measure of the speed of the monitored process and more specifically the build three matrices by filtering the captured images in three frequency bands. The bands are formed by dividing the spectrum of temporal intensity fluctuations into three equal parts. Results of two experiments are processed - monitoring of ink drying under illumination with two intensity levels and observing fluctuations of a steady paper under non-uniform illumination. The conclusion is that the fastest fluctuations are affected in the least degree by the intensity level.
-I would like to make the following comments:
-1.) The study in the paper may benefit a lot if the authors test their processing approach by simulation of the changing in time speckle patterns under non-uniform illumination.
+#I would like to make the following comments:
+#1.) The study in the paper may benefit a lot if the authors test their processing approach by simulation of the changing in time speckle patterns under non-uniform illumination.
+
+---- It is the same answer as theme 4 and 5.
+
 2.) The authors should comment the approaches proposed by other authors for processing of dynamic speckle data that does not depend on the illumination. They must compare those approach with their method. For example, they may refer to
 Fujii, H. , Nohira, K., Yamamoto, Y., Ikawa, H. and Ohura, T., “Evaluation of blood flow by laser speckle imaging sensing Part I,” Appl. Opt. 26 (24), 5321–5325 (1987).
 Stoykova, E., Ivanov, B., Nikova, T., “Correlation-based pointwise processing of dynamic speckle patterns,” Opt. Lett. 39 (1), 115-118 (2014).
 
-3.) The paper should be rewritten to remove typos and to improve the English language. The abstract should be entirely edited. The Introduction must include discussion of results of different authors, so the list of references is too short.
-As the topic treated in the paper is very interesting, it could be accepted after major revision.
+#3.) The paper should be rewritten to remove typos and to improve the English language. The abstract should be entirely edited. The Introduction must include discussion of results of different authors, so the list of references is too short.
+#As the topic treated in the paper is very interesting, it could be accepted after major revision.
+
 
 #MethodsX (optional)
 
@@ -217,7 +258,7 @@ As the topic treated in the paper is very interesting, it could be accepted afte
 
 -------------------------------------------------------------
 
-Copyright © 2018 Elsevier B.V. | Privacy Policy
+#Copyright © 2018 Elsevier B.V. | Privacy Policy
 
-Elsevier B.V., Radarweg 29, 1043 NX Amsterdam, The Netherlands, Reg. No. 33156677.
+#Elsevier B.V., Radarweg 29, 1043 NX Amsterdam, The Netherlands, Reg. No. 33156677.
 
