@@ -84,6 +84,7 @@ being more appropriate higher sampling frequencies for the ink drying test.
 #and involved operations should be performed element by element (as is detailed in Ref. [11]).
 
 [corrigido]
+Element-to-element operations in calculating using arrays were explained.
 
 #3. In Fig. 7 I recommend not to use LEFT and RIGHT to differentiate the zones with different
 #illumination levels. Instead, use LOW and HIGH or something like that, in accordance with
@@ -91,6 +92,7 @@ being more appropriate higher sampling frequencies for the ink drying test.
 #adequate. Use frequency ranges instead, as in the text, like [0,Fs/2], and so on.
 
 [corrigido]
+The text has been modified.
 
 #4. The paper sample is supposedly static and the obtained dynamic speckle index should represent
 #the noise baseline of the experimental setup. In turn, the drying ink is the most used test sample
@@ -225,10 +227,12 @@ It is the same answer as theme 4 and 5.
 #something like Analysis of illumination dependency . . . .
 
 [corrigido]
+Title changed to:"Study of Illumination Dependency  in the Dynamic Laser Speckle Analysis"
 
-11. English writing should be thoroughly revised.
+#11. English writing should be thoroughly revised.
 
-
+[corrigido]
+The text has been revised.
 
 -Reviewer 2
 
@@ -237,30 +241,22 @@ It is the same answer as theme 4 and 5.
 #I would like to make the following comments:
 #1.) The study in the paper may benefit a lot if the authors test their processing approach by simulation of the changing in time speckle patterns under non-uniform illumination.
 
----- It is the same answer as theme 4 and 5.
+[corrigido]
+It is the same answer as theme 4 and 5.
 
-2.) The authors should comment the approaches proposed by other authors for processing of dynamic speckle data that does not depend on the illumination. They must compare those approach with their method. For example, they may refer to
-Fujii, H. , Nohira, K., Yamamoto, Y., Ikawa, H. and Ohura, T., “Evaluation of blood flow by laser speckle imaging sensing Part I,” Appl. Opt. 26 (24), 5321–5325 (1987).
-Stoykova, E., Ivanov, B., Nikova, T., “Correlation-based pointwise processing of dynamic speckle patterns,” Opt. Lett. 39 (1), 115-118 (2014).
+#2.) The authors should comment the approaches proposed by other authors for processing of dynamic speckle data that does not depend on the illumination. They must compare those approach with their method. For example, they may refer to
+#Fujii, H. , Nohira, K., Yamamoto, Y., Ikawa, H. and Ohura, T., “Evaluation of blood flow by laser speckle imaging sensing Part I,” Appl. Opt. 26 (24), 5321–5325 (1987).
+#Stoykova, E., Ivanov, B., Nikova, T., “Correlation-based pointwise processing of dynamic speckle patterns,” Opt. Lett. 39 (1), 115-118 (2014).
+
+[corrigido]
+The text has been revised.
 
 #3.) The paper should be rewritten to remove typos and to improve the English language. The abstract should be entirely edited. The Introduction must include discussion of results of different authors, so the list of references is too short.
 #As the topic treated in the paper is very interesting, it could be accepted after major revision.
 
+[corrigido]
+The text has been revised.
 
-#MethodsX (optional)
 
-#We invite you to submit a method article alongside your research article. This is an opportunity to get full credit for the time and money you have spent on developing research methods, and to increase the visibility and impact of your work.
 
-#If your research article is accepted, your method article will be automatically transferred over to the open access journal, MethodsX, where it will be editorially reviewed and published as a separate method article upon acceptance. Both articles will be linked on ScienceDirect. 
-
-#Please use the MethodsX template available here when preparing your article: https://www.elsevier.com/MethodsX-template. Open access fees apply.
-
-#Have questions or need assistance?
-#For further assistance, please visit our Customer Support site. Here you can search for solutions on a range of topics, find answers to #frequently asked questions, and learn more about EVISE® via interactive tutorials. You can also talk 24/5 to our customer support team by phone and 24/7 by live chat and email.
-
--------------------------------------------------------------
-
-#Copyright © 2018 Elsevier B.V. | Privacy Policy
-
-#Elsevier B.V., Radarweg 29, 1043 NX Amsterdam, The Netherlands, Reg. No. 33156677.
 
