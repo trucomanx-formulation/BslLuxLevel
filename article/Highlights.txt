@@ -1,4 +1,8 @@
-* The results of analysis show the influence of the illumination level in the value of some dynamic laser speckle indexes.
-* The temporal speckle deviation index shows less influence of illumination level in high frequency bands of speckle signal. 
-* The research shows the importance of select a specific illumination level and frequency band to have results with repeatability.
+* We show the influence of the illumination in the value of some speckle indexes.
+* The STD index shows less influence of illumination level in high frequency bands.
+* Some index like Fujii has non-linear behavior in a frequency bands analysis.
+* We show the importance of select a specific illumination level and frequency band.
+* Speckle index dynamic range is related to the frequency band in the speckle signal.
+
+
 
